@@ -32,16 +32,22 @@ $wgExtensionCredits[ 'parserhook' ][] = array(
 
 $wgExtensionMessagesFiles['ExternalRedirect'] = dirname( __FILE__ ) . '/ExternalRedirect.i18n.php';
 
-/*** Default configuration ***/
-// Array with NUMERIC namespace IDs where external redirection should be allowed.
-$wgExternalRedirectNsIDs = array();
+/*** Default configuration
 
-// Better avoid. Array with page names (see magic word {{FULLPAGENAME}}) where external redirection should be allowed.
-$wgExternalRedirectPages = array();
+// Populate this array with NUMERIC namespace IDs where external redirection should be allowed. 
+// see http://www.mediawiki.org/wiki/Manual:Namespace#Built-in_namespaces
+// This example allows redirects from help pages (12) and user pages (2).
+$wgExternalRedirectNsIDs = array(12, 2);  
+
+// Note: I don't recommend you use this method as it can be easily exploited.
+// Populate this array with page names (see magic word {{FULLPAGENAME}}) where external redirection should be allowed.
+// This example allows redirects from the wiki pages about Warren G. Harding and the Teapot Dome Scandal.
+$wgExternalRedirectPages = array('Teapot_Dome_scandal', 'Warren_G._Harding'); 
 
 // Whether to display link to redirection URL (along with error message) in case externalredirect is used where it is not allowed.
 $wgExternalRedirectDeniedShowURL = false;
-/*****************************/
+
+***************************/
 
 $wgHooks['ParserFirstCallInit'][] = 'wfExternalRedirectParserInit';
 
