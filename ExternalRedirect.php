@@ -53,6 +53,10 @@ function wfExternalRedirectParserInit( Parser $parser ) {
 function wfExternalRedirectRender($parser, $url = '') {
     global $wgExternalRedirectNsIDs, $wgExternalRedirectPages, $wgExternalRedirectDeniedShowURL;
     $parser->disableCache();
+    if( substr($_SERVER['HTTP_REFERER'],0, strlen($url)) === $url
+      || strpos(urldecode($_SERVER['HTTP_REFERER']), "Special:Search") !== false) {
+	    return wfMessage('externalredirect-view', $url)->text();
+    }
     if(!wfParseUrl($url) || strpos($url, chr(13))!==false || strpos($url, chr(10))!==false) {
         return wfMessage('externalredirect-invalidurl')->text();
     }

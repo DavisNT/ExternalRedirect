@@ -26,6 +26,7 @@ Redirection URL is invalid.',
     'externalredirect-denied' => '== ExternalRedirect Error ==
 External redirection is not enabled for this namespace or page.',
     'externalredirect-denied-url' => 'Intended redirection URL: [$1 $1]',
+    'externalredirect-view' => '{{#externalredirect: $1}}'
 );
 
 $messages['de'] = array(
