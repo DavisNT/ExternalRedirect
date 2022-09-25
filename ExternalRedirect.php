@@ -67,7 +67,7 @@ function wfExternalRedirectRender($parser, $url = '') {
         }
         return wfMessage('externalredirect-text', $url)->text();
     } else {
-        return wfMessage('externalredirect-denied')->text().($wgExternalRedirectDeniedShowURL 
+        return wfMessage('externalredirect-denied', $parser->getTitle()->getPrefixedText())->text().($wgExternalRedirectDeniedShowURL 
           ? ' '.wfMessage('externalredirect-denied-url', $url)->text() : "");
     }
 }
