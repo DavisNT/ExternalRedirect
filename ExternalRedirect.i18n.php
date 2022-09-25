@@ -24,7 +24,7 @@ $messages['en'] = array(
     'externalredirect-invalidurl' => '== ExternalRedirect Error ==
 Redirection URL is invalid.',
     'externalredirect-denied' => '== ExternalRedirect Error ==
-External redirection is not enabled for this namespace, page or URL.',
+External redirection is not enabled for this namespace, page or URL. This page is: [$1]',
     'externalredirect-denied-url' => 'Intended redirection URL: [$1 $1]',
 );
 
